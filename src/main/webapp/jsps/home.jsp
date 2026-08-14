@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <h1>Hey Buddies, Welcome to Ajay Tech Web Application</h1>
+    <h1>Hey FUCKERS, Welcome to Ajay Tech Web Application</h1>
     <div class="card">
         <h3>REST API Service Status</h3>
         <p>Click below to test the active employee REST service:</p>
