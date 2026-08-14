@@ -1,22 +1,31 @@
 package in.ajaytech.services;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping("/employee")
 public class EmployeeService {
 
-    @GetMapping("/employee/details")
+    @RequestMapping(value = "/getEmployeeDetails", method = RequestMethod.GET)
     @ResponseBody
-    public String getEmployeeDetails() {
+    public String getEmployeeDetails(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession)
+            throws JSONException {
+
         JSONObject js = new JSONObject();
-        js.put("Name", "Ajay Tech Solutions");
+        js.put("Name", "Ajay Tech");
         js.put("Domain", "ajaytech.in");
-        js.put("Focus", "DevOps, Cloud, Automation");
-        js.put("Vision", "Simplifying Infrastructure with Clear Documentation");
+        js.put("Status", "Running Successfully");
+        js.put("Server", "Apache Tomcat");
+
         return js.toString();
     }
 }
-
