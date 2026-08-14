@@ -19,7 +19,7 @@
 <!-- SonarQube Configuration -->
         <sonar.host.url>http://54.90.181.95:9000</sonar.host.url>
         <sonar.projectKey>ajaytech</sonar.projectKey>
-        <sonar.projectName>ajaytech</sonar.project
+        <sonar.projectName>ajaytech</sonar.projectName>
     </properties>
 
     <dependencies>
