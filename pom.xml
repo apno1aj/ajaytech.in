@@ -16,6 +16,10 @@
         <spring.version>5.1.2.RELEASE</spring.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+<!-- SonarQube Configuration -->
+        <sonar.host.url>http://54.90.181.95:9000</sonar.host.url>
+        <sonar.projectKey>ajaytech</sonar.projectKey>
+        <sonar.projectName>ajaytech</sonar.project
     </properties>
 
     <dependencies>
@@ -78,6 +82,13 @@
                 </configuration>
             </plugin>
 
+	<!-- SonarQube Scanner Plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.11.0.3922</version>
+            </plugin>
+
             <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -90,4 +101,17 @@
             </plugin>
         </plugins>
     </build>
+<!-- Nexus Repository Configuration -->
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://54.237.211.131:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://54.237.211.131:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
