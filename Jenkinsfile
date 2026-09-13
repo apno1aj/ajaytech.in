@@ -41,7 +41,7 @@ pipeline {
 
         stage('Deploy to Tomcat') {
             steps {
-                deploy adapters: [tomcat9(credentialsId: 'tomcat-deployer-creds', path: '', url: 'http://54.144.216.121:8080')], 
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-deployer-creds', path: '', url: 'http://172.31.30.195:8080')], 
                        contextPath: 'ajaytech', 
                        war: 'target/ajaytech.war'
             }
