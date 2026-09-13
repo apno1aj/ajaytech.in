@@ -7,6 +7,13 @@ pipeline {
     }
 
     stages {
+       stage('Notify Start') {
+            steps {
+                slackSend channel: '#jenkins-build-ajaytech',
+                          color: '#439FE0',
+                          message: "STARTED: Job '${env.JOB_NAME}' [Build #${env.BUILD_NUMBER}] has started. (${env.BUILD_URL})"
+            }
+        }
         stage('Checkout Code') {
             steps {
                 git branch: 'main', url: 'https://github.com/apno1aj/ajaytech.in.git'
@@ -45,6 +52,18 @@ pipeline {
                        contextPath: 'ajaytech', 
                        war: 'target/ajaytech.war'
             }
+        }
+    }
+        post {
+            success {
+                slackSend channel: '#jenkins-build-ajaytech',
+                      color: 'good',
+                      message: "SUCCESS: Job '${env.JOB_NAME}' [Build #${env.BUILD_NUMBER}] completed and deployed! (${env.BUILD_URL})"
+        }
+            failure {
+                slackSend channel: '#jenkins-build-ajaytech',
+                      color: 'danger',
+                      message: "FAILED: Job '${env.JOB_NAME}' [Build #${env.BUILD_NUMBER}] failed! Check logs: ${env.BUILD_URL}"
         }
     }
 }
