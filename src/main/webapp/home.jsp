@@ -13,7 +13,7 @@
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
         }
         body {
-            background: radial-gradient(circle at 20% 20%, #0d1527 0%, #050811 100%);
+            background: radial-gradient(circle at 20% 20%, #0d2f1f 0%, #04140c 100%);
             color: #f1f5f9;
             min-height: 100vh;
             display: flex;
